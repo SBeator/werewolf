@@ -7,9 +7,7 @@ Page({
   },
   onLoad: function () {
     this.setData({
-      logs: (util.getLogs()).map(log => {
-        return `${util.formatTime(new Date(log.time))} [${log.tag}] ${log.message}`
-      })
+      logs: util.getLogs()
     })
   }
 })
