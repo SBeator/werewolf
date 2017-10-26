@@ -14,6 +14,23 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const addLog = (tag, message) => {
+  var logs = wx.getStorageSync('logs') || []
+
+  logs.unshift({
+    tag,
+    message,
+    time: Date.now()
+  })
+  wx.setStorageSync('logs', logs)
+}
+
+const getLogs = () => {
+  return wx.getStorageSync('logs') || []
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime,
+  addLog,
+  getLogs
 }
